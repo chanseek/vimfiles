@@ -1,0 +1,157 @@
+"Hwang Insert these line
+set nocompatible	" Use Vim defaults (much better!)
+set bs=2		" allow backspacing over everything in insert mode
+set ai			" always set autoindenting on
+set tw=80		" always limit the width of text to 78
+set backup		" keep a backup file
+set ts=4
+set sts=4
+set sw=4
+set exrc
+set ruler
+set visualbell
+set cino=>4
+set hidden
+set nowrap
+set fileencodings=ucs-bom,utf-8,default,euc-kr,latin1
+set termencoding=utf-8
+set showmatch
+set guioptions-=T
+set foldmethod=marker
+"set keywordprg=man\ 2\ 
+"set  keywordprg=w3m\ -O\ euc-kr\ http://endic.naver.com/small.naver?query\=
+"set guioptions-=m
+"set shell=c:\4dos\4dos.com
+"set shell=c:\windows\system32\cmd.exe
+"set shellpipe=>&
+"set makeef=vim.err
+set viminfo='20,\"50	" read/write a .viminfo file, don't store more
+			" than 50 lines of registers
+" Hwang Chan-sik's rc
+" set expandtab
+"set guifont=Fixedsys:h12
+"set guifont=Andale_Mono:h10
+"set guifont=Courier:h10
+set guifont=fixedsys:h11:cHANGEUL
+"set guifont=±¼¸²Ã¼:h10:cHANGEUL
+set ic "ignore case
+
+ab  ___AUTH Chan-sik Hwang, chansik.hwang@lgericsson.com
+ab  ___FILE file: =expand("%:t")<ESC>
+map <c-w><c-b> :FirstExplorerWindow<cr> 
+map <c-w><c-f> :BottomExplorerWindow<cr> 
+map <c-w><c-t> :WMToggle<cr> 
+map <F8> <ESC>i/*<ESC>$a*/<ESC>0+
+map <S-F8> <ESC>$?\/\*<CR>2x/\*\/<CR>2x0:noh<CR>
+map <F9> <ESC>I/*<ESC>A*/<ESC>0+
+map <S-F9> <ESC>?\/\*<CR>v/\*\/<CR>ld:noh<CR>
+map <F2> <c-w><c-w>
+map <F4> <ESC>:edit 
+map <F5> <ESC>:cn<CR>
+map <F6> <ESC>:cp<CR>
+map <F7> :w\|!python %<CR>
+highlight Normal guibg=grey
+highlight Visual guibg=red guifg=lightgreen
+"nmap ,sw WdaWBhp
+" nmap ,cu "zdaW|let t=strlen(@z)|while(
+nmap ,dt a<C-R>=strftime("%Y/%m/%d %H:%M:%S %Z")<CR><ESC>
+nmap ,dn aTime:<C-R>=strftime("%Y/%m/%d %H:%M")<CR><ESC>a<TAB><CR>Username:<C-R>=expand("$username")<CR><ESC>
+nmap ,da a <C-R>=strftime("%Y/%m/%d")<CR><ESC>
+nmap ,ti a <C-R>=strftime("%H:%M")<CR><ESC>
+nmap ,gw <ESC>:grep <cword> *.[ch]
+nmap ,fd <ESC>:!w3m http://endic.naver.com/small.naver?query=<cword><CR>
+nmap ,fe <ESC>:!w3m -O euc-kr http://eedic.naver.com/small.naver?query=<cword><CR>
+nmap ,lg <ESC>:!w3m http://stock.finance.daum.net/search/quote/s2010000.html?code=<cword><CR>
+nmap <C-/> <ESC>:%s/<cword>/
+nmap <C-W><C-P> :vsplit <cfile><CR>
+
+nmap ,in <ESC>I#include <><ESC>ba
+nmap ,gw <ESC>:grep <cword> *.[ch] <cr>
+map ,k :?^{??^\k? mark k\|echo getline("'k") <CR>
+"digraph ESC define Key
+set nodg
+"dig es 27
+"abbreviation 
+"iab #d #define
+"iab #i #include 
+"set grepprg=grep\ -n
+" For Insert mode completion
+"inoremap <Tab> <C-P>
+set complete=.,b,i,u
+set noincsearch
+if has("gui_running")
+	colorscheme desert
+	"colorscheme midnight2
+	"highlight MatchParen guifg=black guibg=white
+	highlight MatchParen ctermbg=blue guibg=blue
+else
+	colorscheme desert
+	"highlight MatchParen ctermfg=black ctermbg=white
+	highlight MatchParen ctermbg=blue guibg=blue
+endif
+highlight MatchParen ctermfg=red ctermbg=blue
+highlight User1 term=bold cterm=bold ctermfg=red
+if !has("dos16")
+"Define Hwang Function
+:function! Subststring()
+:echo "Replace word under cursor(".expand("<cword>").")!!"
+:let name=input("Enter Replace String:")
+:exec '%s/'.expand("<cword>").'/'.name.'/gc'
+:endfunction
+:function! Hhh()
+:echo "Replace word under cursor(".expand("<cword>").")!!"
+:let name=input("Enter Replace String:")
+:exec '%s/'.expand("<cword>").'/'.name.'/gc'
+:endfunction
+
+"Auto Command for 
+"autocmd BufRead Makefile,makefile,*.mak set noexpandtab
+"autocmd BufRead *.c,*.h set sw=8
+"autocmd BufRead *.c,*.h set ts=8
+"autocmd BufRead *.c,*.h set cino=>8
+" End Hwang's define
+endif
+
+if has("cscope")
+	set csprg=cscope
+	set csto=0
+	set cst
+	set nocsverb
+	" add any database in current directory
+	if filereadable("cscope.out")
+	    cs add cscope.out
+	" else add database pointed to by environment
+	elseif $CSCOPE_DB != ""
+	    cs add $CSCOPE_DB
+	endif
+	set csverb
+endif
+
+let g:C_AuthorName     = "Chan-sik Hwang"
+let g:C_AuthorRef      = "cshwang"
+let g:C_Email          = "chansik.hwang@lgericsson.com"
+let g:C_Company        = "LG-Ericsson Co.Ltd."
+
+:let mapleader = ","
+
+function! Myhi()
+	"set statusline=%<%1*===\ %1*%f%1*%(\ ===\ %1*%h%1*%)%(\ ===\ %1*%m%1*%)%(\ ===\ %1*%r%1*%)\ ===%====\ %1*Line:%l,%1*%c%V%1*\ ===\ %1*[0x%B]%1*\ ===\ %1*%P%1*\ ===%0* laststatus=2
+	set statusline=%1*File:\ %2*%f%1*\ %y\ (0x%02B)\ %4l,%-3c%-3V%<%(\ =\ %1*%m%1*%)%(\ =\ %1*%r%1*%)\ ===%====\ %1*%P%1*\ ===%0* laststatus=2
+	"highlight User1 term=inverse,bold cterm=inverse,bold ctermfg=green ctermbg=yellow
+	highlight User1 term=inverse,bold cterm=inverse,bold ctermfg=lightblue ctermbg=yellow
+	highlight User2 term=inverse,bold cterm=inverse,bold ctermfg=blue ctermbg=red
+endf
+
+
+autocmd BufRead *.c,*.h nmap ,ch <Esc><Esc>:call C_CommentTemplates("cheader")<CR>
+autocmd BufRead *.c,*.h nmap ,hh <Esc><Esc>:call C_CommentTemplates("hheader")<CR>
+autocmd BufRead *.c,*.h nmap ,fh <Esc><Esc>:call C_CommentTemplates("function")<CR>
+autocmd BufNewFile,BufRead *.py set expandtab ts=4 sw=4 sts=4
+autocmd BufRead * :call Myhi()
+nmap ,is :set statusline=%<%1*===\ %1*%f%1*%(\ ===\ %1*%h%1*%)%(\ ===\ %1*%m%1*%)%(\ ===\ %1*%r%1*%)\ ===%====\ %1*%l,%1*%c%V%1*\ ===[\ %1*%b(0x%B)%1*\ ]===\ %1*%P%1*\ ===%0* laststatus=2
+"nmap ,is :set statusline=%<%1*===\ %5*%f%1*%(\ ===\ %4*%h%1*%)%(\ ===\ %4*%m%1*%)%(\ ===\ %4*%r%1*%)\ ===%====\ %3*%l,%3*%c%V%1*\ ===[\ %3*%b(0x%B)%1*\ ]===\ %5*%P%1*\ ===%0* laststatus=2
+"set statusline=%<%1*===\ %5*%f%1*%(\ ===\ %4*%h%1*%)%(\ ===\ %4*%m%1*%)%(\ ===\ %4*%r%1*%)\ ===%====\ %3*%l,%3*%c%V%1*\ ===[\ %3*%b(0x%B)%1*\ ]===\ %5*%P%1*\ ===%0* laststatus=2
+"set statusline=%<%1*===\ %1*%f%1*%(\ ===\ %1*%h%1*%)%(\ ===\ %1*%m%1*%)%(\ ===\ %1*%r%1*%)\ ===%====\ %1*%l,%1*%c%V%1*\ ===[\ %1*%b(0x%B)%1*\ ]===\ %1*%P%1*\ ===%0* laststatus=2
+"highlight User1 term=inverse,bold cterm=inverse,bold ctermfg=red
+"highlight User5 term=inverse,bold cterm=inverse,bold ctermfg=blue
+highlight User1 term=bold cterm=bold ctermfg=red
