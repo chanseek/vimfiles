@@ -2,7 +2,7 @@
 set nocompatible	" Use Vim defaults (much better!)
 set bs=2		" allow backspacing over everything in insert mode
 set ai			" always set autoindenting on
-set tw=80		" always limit the width of text to 78
+set tw=120		" 80 is too small -> 120
 set backup		" keep a backup file
 set ts=4
 set sts=4
