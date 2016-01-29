@@ -139,7 +139,9 @@ if has("gui_running")
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
+set encoding=euc-kr
+set fileencodings=euc-kr,utf-8,latin1
+set termencoding=utf-8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -563,3 +565,9 @@ if has("cscope")
     "set ttimeoutlen=100
 
 endif
+
+"CSHwang
+nmap gl *#
+au VimEnter * RainbowParenthesesActivate
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadBraces
