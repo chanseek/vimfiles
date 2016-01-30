@@ -89,7 +89,8 @@ set hid
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
+"set whichwrap+=<,>,h,l
+set whichwrap+=<,>
 
 " Ignore case when searching
 set ignorecase
@@ -110,9 +111,9 @@ set lazyredraw
 set magic
 
 " Show matching brackets when text indicator is over them
-set showmatch
+"set showmatch
 " How many tenths of a second to blink when matching brackets
-set mat=2
+"set mat=2
 
 " No annoying sound on errors
 set noerrorbells
@@ -191,8 +192,8 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Treat long lines as break lines (useful when moving around in them)
-map j gj
-map k gk
+"map j gj
+"map k gk
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 "map <space> /
@@ -256,7 +257,7 @@ set statusline=\ %{HasPaste()}%F\:%l\:%c\ %m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap VIM 0 to first non-blank character
-map 0 ^
+"map 0 ^
 
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
@@ -567,7 +568,7 @@ if has("cscope")
 endif
 
 "CSHwang
-nmap gl *#
+nmap <leader>l *#
 au VimEnter * RainbowParenthesesActivate
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadBraces
