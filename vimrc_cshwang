@@ -568,7 +568,13 @@ if has("cscope")
 endif
 
 "CSHwang
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
+Plug 'luochen1990/rainbow'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+call plug#end()
+let g:rainbow_active = 1
 nmap <leader>l *#
-au VimEnter * RainbowParenthesesActivate
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadBraces
+"au VimEnter * RainbowParenthesesActivate
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadBraces
