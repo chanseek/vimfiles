@@ -572,6 +572,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'luochen1990/rainbow'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'vim-scripts/Python-mode-klen'
+Plug 'elixir-lang/vim-elixir'
 call plug#end()
 let g:rainbow_active = 1
 nmap <leader>l *#
@@ -579,4 +581,3 @@ nmap <leader>l *#
 au BufReadPost *.* hi CursorLine term=reverse   ctermbg=0 guibg=Grey10 cterm=None
 au BUfReadPost *.* hi CursorColumn term=reverse ctermbg=0 guibg=Grey20 cterm=None
 set cul cuc
-
