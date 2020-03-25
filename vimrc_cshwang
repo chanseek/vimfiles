@@ -140,8 +140,8 @@ if has("gui_running")
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=euc-kr
-set fileencodings=euc-kr,utf-8,latin1
+set encoding=utf-8
+set fileencodings=utf-8,euc-kr,utf-8,latin1
 set termencoding=utf-8
 
 " Use Unix as the standard file type
@@ -569,16 +569,18 @@ endif
 
 "CSHwang
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-sensible'
+"Plug 'tpope/vim-sensible'
 Plug 'luochen1990/rainbow'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'vim-scripts/Python-mode-klen'
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+"Plug 'vim-scripts/Python-mode-klen'
 Plug 'elixir-lang/vim-elixir'
 Plug 'leafgarland/typescript-vim'
+Plug 'posva/vim-vue'
 call plug#end()
 let g:rainbow_active = 1
 nmap <leader>l *#
  
 au BufReadPost *.* hi CursorLine term=reverse   ctermbg=0 guibg=Grey10 cterm=None
 au BUfReadPost *.* hi CursorColumn term=reverse ctermbg=0 guibg=Grey20 cterm=None
+au BUfReadPost *.vue set ts=2 sw=2 expandtab
 set cul cuc
