@@ -140,8 +140,8 @@ if has("gui_running")
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=euc-kr
-set fileencodings=euc-kr,utf-8,latin1
+set encoding=utf-8
+set fileencodings=utf-8,euc-kr,latin1
 set termencoding=utf-8
 
 " Use Unix as the standard file type
@@ -570,6 +570,7 @@ endif
 "CSHwang
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
+Plug 'leafOfTree/vim-vue-plugin'
 Plug 'luochen1990/rainbow'
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 "Plug 'vim-scripts/Python-mode-klen'
