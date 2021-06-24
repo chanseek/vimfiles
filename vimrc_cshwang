@@ -141,11 +141,7 @@ endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf-8
-<<<<<<< HEAD
 set fileencodings=utf-8,euc-kr,latin1
-=======
-set fileencodings=utf-8,euc-kr,utf-8,latin1
->>>>>>> 63e5889c36092902906dda8e84d803a673428ea1
 set termencoding=utf-8
 
 " Use Unix as the standard file type
@@ -573,12 +569,9 @@ endif
 
 "CSHwang
 call plug#begin('~/.vim/plugged')
-<<<<<<< HEAD
 Plug 'tpope/vim-sensible'
 Plug 'leafOfTree/vim-vue-plugin'
-=======
 "Plug 'tpope/vim-sensible'
->>>>>>> 63e5889c36092902906dda8e84d803a673428ea1
 Plug 'luochen1990/rainbow'
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 "Plug 'vim-scripts/Python-mode-klen'
